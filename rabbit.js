@@ -7,31 +7,47 @@ class Rabbit
         this.y = y;
         this.age = age;
         this.alive = true;
+        this.infected = false;
+        this.canReproduce = false;
     }
 
     update()
     {
         this.x += random(-5, 5);
         this.y += random(-5, 5);
+
+
     }
 
     show()
     {
+        // let color = (255, 255, 255)
+        
+        // fill(color)
         circle(this.x, this.y, 10);
     }
 
     move()
     {
-        if ((this.age < max_hours) && this.alive)
+        if ((this.age < bunny_life_span) && this.alive)
         {
             this.update();
             this.show();
         }
-        if (this.age == max_hours) this.alive = false;
+        
+        // kill off the bunny once it reaches the end of it's lifespan
+        if (this.age == bunny_life_span)
+        {
+            this.alive = false;
+        }
+
+        // for each second 
         if (frameCount % 60 == 0 && this.alive)
         {
+            // increase age by 1 
             this.age++;
+            // basically let it reproduce after the first month
+            if (this.age > reproduce_after+1 && !this.canReproduce) this.canReproduce = true;
         }
-        
     }
 }
