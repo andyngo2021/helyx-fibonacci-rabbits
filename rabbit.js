@@ -21,10 +21,11 @@ class Rabbit
 
     show()
     {
-        // let color = (255, 255, 255)
-        
-        // fill(color)
-        circle(this.x, this.y, 10);
+        let rabbit_color = color(255, 255, 255);
+        if (this.infected) rabbit_color = color(219, 0, 48); // red for infected
+        else if (this.canReproduce) rabbit_color = color(0, 219, 91);
+        fill(rabbit_color);
+        circle(this.x, this.y, rabbit_size);
     }
 
     move()
@@ -47,7 +48,10 @@ class Rabbit
             // increase age by 1 
             this.age++;
             // basically let it reproduce after the first month
-            if (this.age > reproduce_after+1 && !this.canReproduce) this.canReproduce = true;
+            if (this.age > reproduce_after+1 && !this.canReproduce)
+            {
+                this.canReproduce = true;
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 let c = [];
+let rabbit_size = 10;
 let start_time = 0;
 let bunny_life_span = 100000000000
 let w, h;

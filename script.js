@@ -59,4 +59,20 @@ function draw()
     text("Total population size: " + c.length.toString(), 40, 50);
     textSize(15);
     text("Time in seconds passed: " + start_time.toString(), w-200, h-20);
+
+
+    // legend to show stuff 
+    let spacing = 20; // space each one 10 px apart
+    fill(color(219, 0, 48)); // infected color
+    circle(w-50, spacing - 5, rabbit_size);
+    text("Infected Rabbit Pair: ", w-200, spacing);
+
+    fill(color(0, 219, 91)); // can reproduce
+    circle(w-50, spacing*2 - 5, rabbit_size);
+    text("Adult Rabbit Pair: ", w-200, spacing*2);
+
+    fill(color(255, 255, 255));
+    circle(w-50, spacing*3 - 5, rabbit_size);
+    text("Newborn Rabbit Pair: ", w-200, spacing*3);
+
 }
