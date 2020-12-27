@@ -2,7 +2,9 @@
 
 function setup()
 {
-    
+    infected_color = color(219, 0, 48);
+    newborn_color = color(255, 255, 255);
+    adult_color = color(0, 219, 91);
     w = windowWidth;
     h = windowHeight*.80;
     createCanvas(w, h);
@@ -63,16 +65,25 @@ function draw()
 
     // legend to show stuff 
     let spacing = 20; // space each one 10 px apart
-    fill(color(219, 0, 48)); // infected color
+    fill(infected_color); // infected color
     circle(w-50, spacing - 5, rabbit_size);
     text("Infected Rabbit Pair: ", w-200, spacing);
 
-    fill(color(0, 219, 91)); // can reproduce
+    fill(adult_color); // can reproduce
     circle(w-50, spacing*2 - 5, rabbit_size);
     text("Adult Rabbit Pair: ", w-200, spacing*2);
 
-    fill(color(255, 255, 255));
+    fill(newborn_color);
     circle(w-50, spacing*3 - 5, rabbit_size);
     text("Newborn Rabbit Pair: ", w-200, spacing*3);
+}
 
+function mousePressed()
+{
+    noLoop();
+}
+
+function mouseReleased()
+{
+    loop();
 }

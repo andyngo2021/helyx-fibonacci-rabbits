@@ -21,9 +21,9 @@ class Rabbit
 
     show()
     {
-        let rabbit_color = color(255, 255, 255);
-        if (this.infected) rabbit_color = color(219, 0, 48); // red for infected
-        else if (this.canReproduce) rabbit_color = color(0, 219, 91);
+        let rabbit_color = newborn_color;
+        if (this.infected) rabbit_color = infected_color; // red for infected
+        else if (this.canReproduce) rabbit_color = adult_color;
         fill(rabbit_color);
         circle(this.x, this.y, rabbit_size);
     }

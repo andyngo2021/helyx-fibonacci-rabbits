@@ -6,3 +6,8 @@ let w, h;
 let num_months = 0;
 let delay = 10; 
 let reproduce_after;
+
+// colors
+let infected_color; // 219, 0, 48
+let newborn_color; // 255, 255, 255
+let adult_color; // 0, 219, 91
