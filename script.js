@@ -34,7 +34,7 @@ function draw()
     // time stuff
     if (frameCount % 60*delay == 0)
     {
-        // start_time++; // uncomment for seconds 1->2->3
+        start_time++; // uncomment for seconds 1->2->3
         reproduce_after = start_time % delay;
         if (reproduce_after == 0)
         {
@@ -53,8 +53,10 @@ function draw()
 
     // putting text in js file for now to display time -> prob should move it to html file later
     fill(255);
-    textSize(100);
-    text(num_months.toString(), 40, 100);
-    textSize(10);
-    text("Total population: " + c.length.toString(), w-100, 100);
+    textSize(50);
+    text(num_months.toString() + " months", 40, h-50);
+    textSize(20);
+    text("Total population size: " + c.length.toString(), 40, 50);
+    textSize(15);
+    text("Time in seconds passed: " + start_time.toString(), w-200, h-20);
 }
