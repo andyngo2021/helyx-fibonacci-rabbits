@@ -32,6 +32,7 @@ class Rabbit
     {
         if ((this.age < bunny_life_span) && this.alive)
         {
+            // comment out update to make them stand still
             this.update();
             this.show();
         }
@@ -43,15 +44,16 @@ class Rabbit
         }
 
         // for each second 
-        if (frameCount % 60 == 0 && this.alive)
-        {
-            // increase age by 1 
-            this.age++;
-            // basically let it reproduce after the first month
-            if (this.age > reproduce_after+1 && !this.canReproduce)
-            {
-                this.canReproduce = true;
-            }
-        }
+        // MOVE THIS TO SCRIPT.JS
+        // if (frameCount % 60 == 0 && this.alive)
+        // {
+        //     // increase age by 1 
+        //     this.age++;
+        //     // basically let it reproduce after the first month
+        //     if (this.age > reproduce_after+1 && !this.canReproduce)
+        //     {
+        //         this.canReproduce = true;
+        //     }
+        // }
     }
 }

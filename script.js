@@ -1,12 +1,48 @@
 
 
+function resetEverything()
+{
+    start_time = 0;
+    num_months = 0;
+    c = [];
+}
+
+function skipOneMonth()
+{
+    num_months++;
+    for (let i=0; i<c.length; i++)
+    {
+        if (c[i].alive && c[i].canReproduce)
+        {
+            c.push(new Rabbit(c[i].x, c[i].y, -1));
+            // replace with the below to make them spawn in diff area
+            //c.push(new Rabbit(random(0, w), random(0, h), -1));
+        }
+
+        // if (frameCount % 60*delay == 0 && c[i].alive)
+        if (c[i].alive)
+        {
+            // increase age by 1 
+            c[i].age++;
+            // basically let it reproduce after the first month
+            // if (c[i].age > reproduce_after+1 && !c[i].canReproduce)
+            if (c[i].age > 0 && !c[i].canReproduce)
+            {
+                c[i].canReproduce = true;
+            }
+        }
+    }
+
+
+}
+
 function setup()
 {
     infected_color = color(219, 0, 48);
     newborn_color = color(255, 255, 255);
     adult_color = color(0, 219, 91);
-    w = windowWidth;
-    h = windowHeight*.80;
+    w = windowWidth*0.80;
+    h = windowHeight;
     createCanvas(w, h);
 
     for (let i=0; i<1; i++)
@@ -37,20 +73,16 @@ function draw()
     if (frameCount % 60*delay == 0)
     {
         start_time++; // uncomment for seconds 1->2->3
+
         reproduce_after = start_time % delay;
         if (reproduce_after == 0)
         {
-            console.log(num_months);
-            num_months++;
-            for (let i=0; i<c.length; i++)
-            {
-                if (c[i].alive && c[i].canReproduce)
-                {
-                    c.push(new Rabbit(c[i].x, c[i].y, 0));
-                }
-            }
+            skipOneMonth();
         }
+        
+
     }
+
 
 
     // putting text in js file for now to display time -> prob should move it to html file later
@@ -87,3 +119,11 @@ function mouseReleased()
 {
     loop();
 }
+
+
+/*
+Notes:
+- to properly demonstrate the spread of the virus, maybe spawn the rabbits in diff locations?
+- need to make sure rabbits don't go beyond the border
+- need to make it so that the virus can actually spread
+*/
