@@ -110,15 +110,15 @@ function draw()
     text("Newborn Rabbit Pair: ", w-200, spacing*3);
 }
 
-function mousePressed()
-{
-    noLoop();
-}
+// function mousePressed()  
+// {
+//     noLoop();
+// }
 
-function mouseReleased()
-{
-    loop();
-}
+// function mouseReleased()
+// {
+//     loop();
+// }
 
 
 /*
