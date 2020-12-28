@@ -9,7 +9,7 @@ class Rabbit
         this.alive = true;
         this.infected = false;
         this.canReproduce = false;
-        this.countDownTimer = die_after;
+        //this.countDownTimer = die_after;
         this.start = 0;
         num_not_infected++;
     }
