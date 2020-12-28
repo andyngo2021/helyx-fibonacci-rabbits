@@ -4,7 +4,7 @@ let start_time = 0;
 let num_months = 0;
 let bunny_life_span = 100000000000 // yea idek if i need this one
 let w, h;
-
+let num_initial_buns = 1;
 let delay = 10;  // 10 second delay for them to reproduce (1 month = 10 seconds)
 let reproduce_after;
 

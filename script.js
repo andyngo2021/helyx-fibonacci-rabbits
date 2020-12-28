@@ -48,9 +48,9 @@ function setup()
     h = windowHeight;
     createCanvas(w, h);
 
-    for (let i=0; i<1; i++)
+    for (let i=0; i<num_initial_buns; i++)
     {
-        rabbits.push(new Rabbit(w/2, h/2, 0))
+        rabbits.push(new Rabbit(random(w*0.20, w*0.80), random(h*0.20, h*0.80), 0))
     }
 }
 
