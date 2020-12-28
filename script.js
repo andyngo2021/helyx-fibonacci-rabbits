@@ -4,31 +4,31 @@ function resetEverything()
 {
     start_time = 0;
     num_months = 0;
-    c = [];
+    rabbits = [];
 }
 
 function skipOneMonth()
 {
     num_months++;
-    for (let i=0; i<c.length; i++)
+    for (let i=0; i<rabbits.length; i++)
     {
-        if (c[i].alive && c[i].canReproduce)
+        if (rabbits[i].alive && rabbits[i].canReproduce)
         {
-            c.push(new Rabbit(c[i].x, c[i].y, -1));
+            rabbits.push(new Rabbit(rabbits[i].x, rabbits[i].y, -1));
             // replace with the below to make them spawn in diff area
-            //c.push(new Rabbit(random(0, w), random(0, h), -1));
+            //rabbits.push(new Rabbit(random(0, w), random(0, h), -1));
         }
 
-        // if (frameCount % 60*delay == 0 && c[i].alive)
-        if (c[i].alive)
+        // if (frameCount % 60*delay == 0 && rabbits[i].alive)
+        if (rabbits[i].alive)
         {
             // increase age by 1 
-            c[i].age++;
+            rabbits[i].age++;
             // basically let it reproduce after the first month
-            // if (c[i].age > reproduce_after+1 && !c[i].canReproduce)
-            if (c[i].age > 0 && !c[i].canReproduce)
+            // if (rabbits[i].age > reproduce_after+1 && !rabbits[i].canReproduce)
+            if (rabbits[i].age > 0 && !rabbits[i].canReproduce)
             {
-                c[i].canReproduce = true;
+                rabbits[i].canReproduce = true;
             }
         }
     }
@@ -47,7 +47,7 @@ function setup()
 
     for (let i=0; i<1; i++)
     {
-        c.push(new Rabbit(w/2, h/2, 0))
+        rabbits.push(new Rabbit(w/2, h/2, 0))
     }
 }
 
@@ -55,15 +55,24 @@ function draw()
 {
     background(51); 
     
-    for (let i=c.length-1; i>=0; i--)
+    for (let i=rabbits.length-1; i>=0; i--)
     {
-        if (c[i].alive)
+        if (rabbits[i].alive)
         {
-            c[i].move();
+            rabbits[i].move();
         }
         else
         {
-            c.splice(i, 1);
+            rabbits.splice(i, 1); // if the rabbit is dead -> remove it from the population
+        }
+    }
+
+    // collision detection?
+    for (let i=0; i<rabbits.length; i++)
+    {
+        for (let j=i+1; j<rabbits.length; j++)
+        {
+            rabbits[i].checkInRangeAndInfect(rabbits[j]);
         }
     }
 
@@ -90,7 +99,7 @@ function draw()
     textSize(50);
     text(num_months.toString() + " months", 40, h-50);
     textSize(20);
-    text("Total population size: " + c.length.toString(), 40, 50);
+    text("Total population size: " + rabbits.length.toString(), 40, 50);
     textSize(15);
     text("Time in seconds passed: " + start_time.toString(), w-200, h-20);
 
@@ -127,3 +136,8 @@ Notes:
 - need to make sure rabbits don't go beyond the border
 - need to make it so that the virus can actually spread
 */
+
+function infectRandomRabbit()
+{
+    random(rabbits).infected = true;
+}

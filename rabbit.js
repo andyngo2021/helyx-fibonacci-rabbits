@@ -15,8 +15,6 @@ class Rabbit
     {
         this.x += random(-5, 5);
         this.y += random(-5, 5);
-
-
     }
 
     show()
@@ -55,5 +53,20 @@ class Rabbit
         //         this.canReproduce = true;
         //     }
         // }
+    }
+
+    checkInRangeAndInfect(other_rabbit)
+    {
+        // distance equations
+        if ((this.infected || other_rabbit.infected) && (dist(this.x, this.y, other_rabbit.x, other_rabbit.y) < rabbit_size*2)) // then they do be colliding
+        {
+            let random_chance = 0.5; // random chance rabbit gets infected 0->100
+            if (random(0, 100) < random_chance)
+            {
+                this.infected = true;
+                other_rabbit.infected = true;
+            }
+
+        }
     }
 }

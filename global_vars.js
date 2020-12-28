@@ -1,4 +1,4 @@
-let c = [];
+let rabbits = [];
 let rabbit_size = 10;
 let start_time = 0;
 let num_months = 0;
