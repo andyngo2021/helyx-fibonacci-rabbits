@@ -9,6 +9,9 @@ class Rabbit
         this.alive = true;
         this.infected = false;
         this.canReproduce = false;
+        this.countDownTimer = die_after;
+        this.start = 0;
+        num_not_infected++;
     }
 
     update()
@@ -20,7 +23,11 @@ class Rabbit
     show()
     {
         let rabbit_color = newborn_color;
-        if (this.infected) rabbit_color = infected_color; // red for infected
+        if (this.infected)
+        {
+            rabbit_color = infected_color; // red for infected
+            
+        }
         else if (this.canReproduce) rabbit_color = adult_color;
         fill(rabbit_color);
         circle(this.x, this.y, rabbit_size);
@@ -28,7 +35,8 @@ class Rabbit
 
     move()
     {
-        if ((this.age < bunny_life_span) && this.alive)
+        // if ((this.age < bunny_life_span) && this.alive)
+        if (this.alive)
         {
             // comment out update to make them stand still
             this.update();
@@ -65,6 +73,9 @@ class Rabbit
             {
                 this.infected = true;
                 other_rabbit.infected = true;
+
+                num_infected++;
+                num_not_infected--;
             }
 
         }

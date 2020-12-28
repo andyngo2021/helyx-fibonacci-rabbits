@@ -5,6 +5,9 @@ function resetEverything()
     start_time = 0;
     num_months = 0;
     rabbits = [];
+    num_deaths = 0;
+    num_infected = 0;
+    num_not_infected = 0;
 }
 
 function skipOneMonth()
@@ -60,6 +63,20 @@ function draw()
         if (rabbits[i].alive)
         {
             rabbits[i].move();
+
+            if (rabbits[i].infected)
+            {
+                if (frameCount%60 == 0)
+                {
+                    rabbits[i].start++;
+                    if (rabbits[i].start == die_after)
+                    {
+                        rabbits[i].alive = false;
+                        num_deaths++;
+                        num_infected--;
+                    }
+                }
+            }
         }
         else
         {
@@ -117,6 +134,12 @@ function draw()
     fill(newborn_color);
     circle(w-50, spacing*3 - 5, rabbit_size);
     text("Newborn Rabbit Pair: ", w-200, spacing*3);
+
+    // stats
+    textSize(15);
+    text("Infected: " + num_infected.toString(), w-200, h-spacing*2);
+    text("Non-infected: " + num_not_infected.toString(), w-200, h-spacing*3);
+    text("Deaths: " + num_deaths.toString(), w-200, h-spacing*4);
 }
 
 // function mousePressed()  
@@ -139,5 +162,12 @@ Notes:
 
 function infectRandomRabbit()
 {
-    random(rabbits).infected = true;
+    if (num_infected < rabbits.length)
+    {
+        random(rabbits).infected = true;
+        num_infected++;
+        num_not_infected--;
+    }
 }
+// note:
+// there is a bug for the amount of infected and stuff

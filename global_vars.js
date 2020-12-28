@@ -8,6 +8,10 @@ let w, h;
 let delay = 10; 
 let reproduce_after;
 
+let die_after = 5; // amount of months (or seconds?) rabbits die after 
+let num_deaths = 0;
+let num_infected = 0;
+let num_not_infected = 0;
 // colors
 let infected_color; // 219, 0, 48
 let newborn_color; // 255, 255, 255
