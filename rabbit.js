@@ -16,8 +16,17 @@ class Rabbit
 
     update()
     {
-        this.x += random(-5, 5);
-        this.y += random(-5, 5);
+        this.x += random(-rabbit_speed, rabbit_speed);
+        this.y += random(-rabbit_speed, rabbit_speed)
+        // if left side of screen
+        if (this.x <= 0) this.x += rabbit_speed;
+        // if right side of screen
+        else if (this.x >= w) this.x -= rabbit_speed;
+
+        // if top of the screen
+        if (this.y <= 0) this.y += rabbit_speed;
+        // if bottom of the screen
+        else if (this.y >= h) this.y -= rabbit_speed;
     }
 
     show()
@@ -28,7 +37,7 @@ class Rabbit
             rabbit_color = infected_color; // red for infected
             
         }
-        else if (this.canReproduce) rabbit_color = adult_color;
+        else if (this.canReproduce && reproduction_on) rabbit_color = adult_color;
         fill(rabbit_color);
         circle(this.x, this.y, rabbit_size);
     }

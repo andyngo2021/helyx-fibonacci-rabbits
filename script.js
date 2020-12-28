@@ -8,6 +8,8 @@ function resetEverything()
     num_deaths = 0;
     num_infected = 0;
     num_not_infected = 0;
+    pandemic = false;
+    reproduction_on = true;
 }
 
 function skipOneMonth()
@@ -15,7 +17,7 @@ function skipOneMonth()
     num_months++;
     for (let i=0; i<rabbits.length; i++)
     {
-        if (rabbits[i].alive && rabbits[i].canReproduce)
+        if (reproduction_on && rabbits[i].alive && rabbits[i].canReproduce)
         {
             rabbits.push(new Rabbit(rabbits[i].x, rabbits[i].y, -1));
             // replace with the below to make them spawn in diff area
@@ -35,8 +37,16 @@ function skipOneMonth()
             }
         }
     }
+}
 
+function resumeReproduction()
+{
+    reproduction_on = true;
+}
 
+function pauseReproduction()
+{
+    reproduction_on = false;
 }
 
 function setup()
@@ -64,7 +74,7 @@ function draw()
         {
             rabbits[i].move();
 
-            if (rabbits[i].infected)
+            if (pandemic && rabbits[i].infected)
             {
                 if (frameCount%60 == 0)
                 {
@@ -109,7 +119,10 @@ function draw()
 
     }
 
-
+    if (num_infected == 0 && pandemic)
+    {
+        pandemic = false;
+    }
 
     // putting text in js file for now to display time -> prob should move it to html file later
     fill(255);
@@ -156,8 +169,7 @@ function draw()
 /*
 Notes:
 - to properly demonstrate the spread of the virus, maybe spawn the rabbits in diff locations?
-- need to make sure rabbits don't go beyond the border
-- need to make it so that the virus can actually spread
+
 */
 
 function infectRandomRabbit()
@@ -167,7 +179,11 @@ function infectRandomRabbit()
         random(rabbits).infected = true;
         num_infected++;
         num_not_infected--;
+        pandemic = true;
     }
 }
 // note:
 // there is a bug for the amount of infected and stuff
+
+
+// need to add a way to pause and resume rabbit reproduction
