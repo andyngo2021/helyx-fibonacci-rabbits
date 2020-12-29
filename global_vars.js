@@ -1,6 +1,6 @@
 let rabbits = [];
 let rabbit_size = 10;
-let rabbit_speed = 1;
+let rabbit_speed = 5;
 let start_time = 0;
 let num_months = 0;
 let bunny_life_span = 100000000000 // yea idek if i need this one

@@ -21,8 +21,8 @@ class Rabbit
 
     update()
     {
-        this.position.x += random(-rabbit_speed, rabbit_speed);
-        this.position.y += random(-rabbit_speed, rabbit_speed);
+        // this.position.x += random(-rabbit_speed, rabbit_speed);
+        // this.position.y += random(-rabbit_speed, rabbit_speed);
         let vx = map(noise(this.xoff), 0, 1, -rabbit_speed, rabbit_speed);
         let vy = map(noise(this.yoff), 0, 1, -rabbit_speed, rabbit_speed);
         let v = createVector(vx, vy);
@@ -30,25 +30,32 @@ class Rabbit
         this.yoff += 0.01;
         this.position.add(v);
         // if left side of screen
-        if (this.position.x <= 0) this.position.x += rabbit_speed;
+        if (this.position.x <= 0)
+            //this.position.x += rabbit_speed;
+            this.position.x = w;
         // if right side of screen
-        else if (this.position.x >= w) this.position.x -= rabbit_speed;
+        else if (this.position.x >= w)
+            //this.position.x -= rabbit_speed;
+            this.position.x = 0;
 
         // if top of the screen
-        if (this.position.y <= 0) this.position.y += rabbit_speed;
+        if (this.position.y <= 0)
+            //this.position.y += rabbit_speed;
+            this.position.y = h;
         // if bottom of the screen
-        else if (this.position.y >= h) this.position.y -= rabbit_speed;
+        else if (this.position.y >= h)
+            //this.position.y -= rabbit_speed;
+            this.position.y = 0;
     }
 
     show()
     {
         let rabbit_color = newborn_color;
-        if (this.infected)
+        if (this.canReproduce && reproduction_on) rabbit_color = adult_color;
+        else if (this.infected)
         {
-            rabbit_color = infected_color; // red for infected
-            
+            rabbit_color = infected_color; // red for infected   
         }
-        else if (this.canReproduce && reproduction_on) rabbit_color = adult_color;
         fill(rabbit_color);
         circle(this.position.x, this.position.y, rabbit_size);
     }
