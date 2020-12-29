@@ -155,22 +155,6 @@ function draw()
     text("Deaths: " + num_deaths.toString(), w-200, h-spacing*4);
 }
 
-// function mousePressed()  
-// {
-//     noLoop();
-// }
-
-// function mouseReleased()
-// {
-//     loop();
-// }
-
-
-/*
-Notes:
-- to properly demonstrate the spread of the virus, maybe spawn the rabbits in diff locations?
-
-*/
 
 function infectRandomRabbit()
 {
@@ -185,5 +169,3 @@ function infectRandomRabbit()
 // note:
 // there is a bug for the amount of infected and stuff
 
-
-// need to add a way to pause and resume rabbit reproduction

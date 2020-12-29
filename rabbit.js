@@ -1,6 +1,5 @@
 class Rabbit
 {
-    // need it to move in a random direction
     constructor(x, y, age)
     {
         this.x = x;
@@ -21,8 +20,7 @@ class Rabbit
 
     update()
     {
-        // this.position.x += random(-rabbit_speed, rabbit_speed);
-        // this.position.y += random(-rabbit_speed, rabbit_speed);
+
         let vx = map(noise(this.xoff), 0, 1, -rabbit_speed, rabbit_speed);
         let vy = map(noise(this.yoff), 0, 1, -rabbit_speed, rabbit_speed);
         let v = createVector(vx, vy);
@@ -31,20 +29,16 @@ class Rabbit
         this.position.add(v);
         // if left side of screen
         if (this.position.x <= 0)
-            //this.position.x += rabbit_speed;
             this.position.x = w;
         // if right side of screen
         else if (this.position.x >= w)
-            //this.position.x -= rabbit_speed;
             this.position.x = 0;
 
         // if top of the screen
         if (this.position.y <= 0)
-            //this.position.y += rabbit_speed;
             this.position.y = h;
         // if bottom of the screen
         else if (this.position.y >= h)
-            //this.position.y -= rabbit_speed;
             this.position.y = 0;
     }
 
@@ -62,7 +56,6 @@ class Rabbit
 
     move()
     {
-        // if ((this.age < bunny_life_span) && this.alive)
         if (this.alive)
         {
             // comment out update to make them stand still
@@ -76,18 +69,6 @@ class Rabbit
             this.alive = false;
         }
 
-        // for each second 
-        // MOVE THIS TO SCRIPT.JS
-        // if (frameCount % 60 == 0 && this.alive)
-        // {
-        //     // increase age by 1 
-        //     this.age++;
-        //     // basically let it reproduce after the first month
-        //     if (this.age > reproduce_after+1 && !this.canReproduce)
-        //     {
-        //         this.canReproduce = true;
-        //     }
-        // }
     }
 
     checkInRangeAndInfect(other_rabbit)
