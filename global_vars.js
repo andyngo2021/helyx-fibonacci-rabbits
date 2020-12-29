@@ -21,3 +21,7 @@ let newborn_color; // 255, 255, 255
 let adult_color; // 0, 219, 91
 
 let pandemic = false;
+
+
+// lifespan of an infected rabbit -> die_after/delay
+// ex: die_after = 5 (5 seconds) and delay (10 seconds = 1 month) -> half a month before dying
