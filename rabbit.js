@@ -5,6 +5,7 @@ class Rabbit
     {
         this.x = x;
         this.y = y;
+        this.position = createVector(x, y);
         this.age = age;
         this.alive = true;
         this.infected = false;
@@ -12,21 +13,31 @@ class Rabbit
         //this.countDownTimer = die_after;
         this.start = 0;
         num_not_infected++;
+
+        // for natural movement
+        this.xoff = random(1000); // For perlin noise
+        this.yoff = random(1000);
     }
 
     update()
     {
-        this.x += random(-rabbit_speed, rabbit_speed);
-        this.y += random(-rabbit_speed, rabbit_speed)
+        this.position.x += random(-rabbit_speed, rabbit_speed);
+        this.position.y += random(-rabbit_speed, rabbit_speed);
+        let vx = map(noise(this.xoff), 0, 1, -rabbit_speed, rabbit_speed);
+        let vy = map(noise(this.yoff), 0, 1, -rabbit_speed, rabbit_speed);
+        let v = createVector(vx, vy);
+        this.xoff += 0.01;
+        this.yoff += 0.01;
+        this.position.add(v);
         // if left side of screen
-        if (this.x <= 0) this.x += rabbit_speed;
+        if (this.position.x <= 0) this.position.x += rabbit_speed;
         // if right side of screen
-        else if (this.x >= w) this.x -= rabbit_speed;
+        else if (this.position.x >= w) this.position.x -= rabbit_speed;
 
         // if top of the screen
-        if (this.y <= 0) this.y += rabbit_speed;
+        if (this.position.y <= 0) this.position.y += rabbit_speed;
         // if bottom of the screen
-        else if (this.y >= h) this.y -= rabbit_speed;
+        else if (this.position.y >= h) this.position.y -= rabbit_speed;
     }
 
     show()
@@ -39,7 +50,7 @@ class Rabbit
         }
         else if (this.canReproduce && reproduction_on) rabbit_color = adult_color;
         fill(rabbit_color);
-        circle(this.x, this.y, rabbit_size);
+        circle(this.position.x, this.position.y, rabbit_size);
     }
 
     move()
@@ -75,7 +86,7 @@ class Rabbit
     checkInRangeAndInfect(other_rabbit)
     {
         // if one is NOT infected and the other is infected...
-        if (!(this.infected && other_rabbit.infected) && (this.infected || other_rabbit.infected) && (dist(this.x, this.y, other_rabbit.x, other_rabbit.y) < rabbit_size*2)) // then they do be colliding
+        if (!(this.infected && other_rabbit.infected) && (this.infected || other_rabbit.infected) && (dist(this.position.x, this.position.y, other_rabbit.position.x, other_rabbit.position.y) < rabbit_size*2)) // then they do be colliding
         {
             let random_chance = 0.5; // random chance rabbit gets infected 0->100
             if (random(0, 100) < random_chance)

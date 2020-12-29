@@ -19,7 +19,7 @@ function skipOneMonth()
     {
         if (reproduction_on && rabbits[i].alive && rabbits[i].canReproduce)
         {
-            rabbits.push(new Rabbit(rabbits[i].x, rabbits[i].y, -1));
+            rabbits.push(new Rabbit(rabbits[i].position.x, rabbits[i].position.y, -1));
             // replace with the below to make them spawn in diff area
             //rabbits.push(new Rabbit(random(0, w), random(0, h), -1));
         }
@@ -60,7 +60,7 @@ function setup()
 
     for (let i=0; i<num_initial_buns; i++)
     {
-        rabbits.push(new Rabbit(random(w*0.20, w*0.80), random(h*0.20, h*0.80), 0))
+        rabbits.push(new Rabbit(random(w*0.40, w*0.60), random(h*0.40, h*0.60), 0))
     }
 }
 
