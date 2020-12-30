@@ -114,9 +114,7 @@ function updateDeathTimerByMonth(rabbit)
         rabbit.start += delay/10;
         if (rabbit.start >= die_after)
         {
-            rabbit.alive = false;
-            num_deaths++;
-            num_infected--;
+            rabbit.die();
         }
     }
 }
@@ -128,9 +126,7 @@ function updateDeathTimer(rabbit)
         rabbit.start++;
         if (rabbit.start == die_after)
         {
-            rabbit.alive = false;
-            num_deaths++;
-            num_infected--;
+            rabbit.die();
         }
     }
 }
@@ -274,14 +270,18 @@ function thanos()
         snap.play();
         dust.play();
         num_deaths += snap_victims;
-        
-        // maybe recount
-        num_infected = 0;
-        num_not_infected = 0;
-        for (let i=0; i<rabbits.length; i++)
-        {
-            if (rabbits[i].infected) num_infected++;
-            else num_not_infected++;
-        }
+    
+        recountStats();
+    }
+}
+
+function recountStats()
+{
+    num_infected = 0;
+    num_not_infected = 0;
+    for (let i=0; i<rabbits.length; i++)
+    {
+        if (rabbits[i].infected) num_infected++;
+        else num_not_infected++;
     }
 }

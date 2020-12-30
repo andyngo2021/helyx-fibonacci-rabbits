@@ -88,4 +88,11 @@ class Rabbit
 
         }
     }
+
+    die()
+    {
+        this.alive = false;
+        num_deaths++;
+        num_infected--;
+    }
 }
