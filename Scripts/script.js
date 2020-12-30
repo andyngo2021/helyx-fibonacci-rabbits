@@ -237,7 +237,7 @@ function changeColor()
 {
     var theInput = document.getElementById("bkg-color");
     var theColor = theInput.value;
-    console.log(theColor);
+    // console.log(theColor);
     background_color = theColor;
     //background(color(background_color));
     //document.getElementById("bkg-color").value = "#000000";
