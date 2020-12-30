@@ -269,8 +269,19 @@ function thanos()
 {
     if (rabbits.length > 1)
     {
-        rabbits.splice(1, Math.ceil(rabbits.length/2));
+        let snap_victims = Math.ceil(rabbits.length/2);
+        rabbits.splice(0, snap_victims);
         snap.play();
         dust.play();
+        num_deaths += snap_victims;
+        
+        // maybe recount
+        num_infected = 0;
+        num_not_infected = 0;
+        for (let i=0; i<rabbits.length; i++)
+        {
+            if (rabbits[i].infected) num_infected++;
+            else num_not_infected++;
+        }
     }
 }
