@@ -46,7 +46,7 @@ class Rabbit
     {
         let rabbit_color = newborn_color;
         if (this.canReproduce && reproduction_on) rabbit_color = adult_color;
-        else if (this.infected)
+        if (this.infected)
         {
             rabbit_color = infected_color; // red for infected   
         }
