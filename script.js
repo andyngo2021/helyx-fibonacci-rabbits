@@ -64,6 +64,7 @@ function initializeValues()
     adult_color = color(0, 219, 91);
     w = windowWidth*0.79;
     h = windowHeight*0.95;
+    background_color = 51;
 }
 
 function setup()
@@ -108,7 +109,7 @@ function updateDeathTimer(rabbit)
 
 function draw()
 {
-    background(51); 
+    background(color(background_color)); 
     
     for (let i=rabbits.length-1; i>=0; i--)
     {
@@ -205,3 +206,14 @@ function infectRandomRabbit()
 // note:
 // there is a bug for the amount of infected and stuff
 
+function changeColor()
+{
+    var theInput = document.getElementById("bkg-color");
+    var theColor = theInput.value;
+    console.log(theColor);
+    background_color = theColor;
+    background(color(background_color));
+    document.getElementById("bkg-color").value = "#000000";
+
+}
+      
