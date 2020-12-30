@@ -28,11 +28,11 @@
 
   <div class="slidecontainer">
     <!-- number of months slider -->
-    <div style='z-index: 1'><p1><span id="monthsValue"></span> months </p1>
-    <input type="range" min="1" max="10" value="1" class="slider" id="monthsRange"></div>
+    <div style='z-index: 1'><p1>Simulate <span id="monthsValue"></span> month(s)</p1>
+    <input type="range" min="1" max="15" value="10" class="slider" id="monthsRange"></div>
     <!-- rate of time slider -->
     <div style='z-index: 2'><p1><span id="timeValue"></span> seconds / month </p1>
-    <input type="range" min="1" max="10" value="1" class="slider" id="timeRange"></div>
+    <input type="range" min="1" max="25" value="10" class="slider" id="timeRange"></div>
     <!-- # of initial rabbits slider -->
     <div style='z-index: 3'><p1><span id="initialValue"></span> initial rabbits </p1>
     <input type="range" min="1" max="10" value="1" class="slider" id="initialRange"> </div>
@@ -40,7 +40,7 @@
     <div style='z-index: 4'><p1><span id="offspringValue"></span> offspring / pair </p1>
     <input type="range" min="1" max="10" value="1" class="slider" id="offspringRange"> </div>
     <!-- lifespan of infected slider -->
-    <div style='z-index: 5'><p1>Die after <span id="lifespanValue"></span> months </p1>
+    <div style='z-index: 5'><p1>Infected rabbits die after <span id="lifespanValue"></span> months </p1>
     <input type="range" min="1" max="10" value="1" class="slider" id="lifespanRange"> </div>
   </div><br>
 
@@ -83,18 +83,27 @@
 
   numOfMonths.oninput = function() {
     numOfMonthsOutput.innerHTML = this.value;
+    max_months = this.value;
+    
   }
   rateOfTime.oninput = function() {
     rateOfTimeOutput.innerHTML = this.value;
+    delay = this.value; // change the number of seconds per month
   }
   numInitial.oninput = function() {
     numInitialOutput.innerHTML = this.value;
+    resetEverything();
+    num_initial_buns = this.value;
+    setup();
+    draw();
   }
   numOffspring.oninput = function() {
     numOffspringOutput.innerHTML = this.value;
+    num_offspring = this.value;
   }
   infectedLifespan.oninput = function() {
     infectedLifespanOutput.innerHTML = this.value;
+    die_after = this.value * delay;
   }
 </script>
 

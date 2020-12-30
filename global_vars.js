@@ -8,10 +8,11 @@ let bunny_life_span = 100000000000 // yea idek if i need this one
 let reproduction_on = true;
 let w, h;
 let num_initial_buns = 1; // initial population
+let num_offspring = 1;
 let delay = 10;  // 10 second delay for them to reproduce (1 month = 10 seconds)
 let reproduce_after;
-
-let die_after = 10; // amount of seconds rabbits die after 
+let max_months = 10;
+let die_after = 5; // amount of seconds rabbits die after 
 let num_deaths = 0;
 let num_infected = 0;
 let num_not_infected = 0;

@@ -4,36 +4,44 @@ function resetEverything()
 {
     start_time = 0;
     num_months = 0;
+    num_initial_buns = 1;
     rabbits = [];
     num_deaths = 0;
     num_infected = 0;
     num_not_infected = 0;
     pandemic = false;
     reproduction_on = true;
+    // reset the sliders
+    // doc.getelemtnbyid blahbalh
 }
 
 function skipOneMonth()
 {
-    num_months++;
-    for (let i=0; i<rabbits.length; i++)
+    if (num_months < max_months)
     {
-        if (reproduction_on && rabbits[i].alive && rabbits[i].canReproduce)
+        num_months++;
+        for (let i=0; i<rabbits.length; i++)
         {
-            rabbits.push(new Rabbit(rabbits[i].position.x, rabbits[i].position.y, -1));
-            // replace with the below to make them spawn in diff area
-            //rabbits.push(new Rabbit(random(0, w), random(0, h), -1));
-        }
-
-        // if (frameCount % 60*delay == 0 && rabbits[i].alive)
-        if (rabbits[i].alive)
-        {
-            // increase age by 1 
-            rabbits[i].age++;
-            // basically let it reproduce after the first month
-            // if (rabbits[i].age > reproduce_after+1 && !rabbits[i].canReproduce)
-            if (rabbits[i].age > 0 && !rabbits[i].canReproduce)
+            updateDeathTimerByMonth(rabbits[i]);
+            if (reproduction_on && rabbits[i].alive && rabbits[i].canReproduce)
             {
-                rabbits[i].canReproduce = true;
+                for (let j=0; j<num_offspring; j++)
+                    rabbits.push(new Rabbit(rabbits[i].position.x, rabbits[i].position.y, -1));
+                // replace with the below to make them spawn in diff area
+                //rabbits.push(new Rabbit(random(0, w), random(0, h), -1));
+            }
+
+            // if (frameCount % 60*delay == 0 && rabbits[i].alive)
+            if (rabbits[i].alive)
+            {
+                // increase age by 1 
+                rabbits[i].age++;
+                // basically let it reproduce after the first month
+                // if (rabbits[i].age > reproduce_after+1 && !rabbits[i].canReproduce)
+                if (rabbits[i].age > 0 && !rabbits[i].canReproduce)
+                {
+                    rabbits[i].canReproduce = true;
+                }
             }
         }
     }
@@ -69,6 +77,35 @@ function setup()
     }
 }
 
+
+function updateDeathTimerByMonth(rabbit)
+{
+    if (rabbit.infected && pandemic)
+    {
+        rabbit.start += delay;
+        if (rabbit.start >= die_after)
+        {
+            rabbit.alive = false;
+            num_deaths++;
+            num_infected--;
+        }
+    }
+}
+
+function updateDeathTimer(rabbit)
+{
+    if (rabbit.infected && pandemic)
+    {
+        rabbit.start++;
+        if (rabbit.start == die_after)
+        {
+            rabbit.alive = false;
+            num_deaths++;
+            num_infected--;
+        }
+    }
+}
+
 function draw()
 {
     background(51); 
@@ -81,15 +118,9 @@ function draw()
 
             if (pandemic && rabbits[i].infected)
             {
-                if (frameCount%60 == 0)
+                if (frameCount%60 == 0) // one second has passed
                 {
-                    rabbits[i].start++;
-                    if (rabbits[i].start == die_after)
-                    {
-                        rabbits[i].alive = false;
-                        num_deaths++;
-                        num_infected--;
-                    }
+                    updateDeathTimer(rabbits[i]);
                 }
             }
         }
@@ -116,7 +147,7 @@ function draw()
         start_time++; // uncomment for seconds 1->2->3
 
         reproduce_after = start_time % delay;
-        if (reproduce_after == 0)
+        if (reproduce_after == 0 && num_months < max_months)
         {
             skipOneMonth();
         }
