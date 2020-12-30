@@ -105,9 +105,9 @@ p {
 
 p1 {
   color: white;
-  font-size: 11px;
+  font-size: 13px;
   font-family: 'Nunito', sans-serif;
-  padding-left: 10%;
+  padding-left: 0%;
   display: inline-block;
 }
 
@@ -129,6 +129,7 @@ input[type="color"] {
   position:relative;
   width: 193px;
 }
+/*
 input[type="color"]::-webkit-color-swatch {
   position:absolute;
   top:-1px;
@@ -136,6 +137,31 @@ input[type="color"]::-webkit-color-swatch {
   right:-1px;
   bottom:-1px;
   box-sizing: border-box;
-  border:0px solid transparent;
+  border:2px solid transparent;
+} */
+
+.scrollable {
+  height: 100%; /* or any value */
+  overflow-y: auto;
+  overflow-x: hidden; 
+}
+
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background:black; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: black; 
 }
 
