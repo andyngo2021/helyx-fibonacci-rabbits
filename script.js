@@ -54,8 +54,8 @@ function setup()
     infected_color = color(219, 0, 48);
     newborn_color = color(255, 255, 255);
     adult_color = color(0, 219, 91);
-    w = windowWidth*0.80;
-    h = windowHeight;
+    w = windowWidth*0.79;
+    h = windowHeight*0.95;
     createCanvas(w, h);
 
     for (let i=0; i<num_initial_buns; i++)
