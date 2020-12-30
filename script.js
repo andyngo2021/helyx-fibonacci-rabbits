@@ -90,7 +90,7 @@ function updateDeathTimerByMonth(rabbit)
 {
     if (rabbit.infected && pandemic)
     {
-        rabbit.start += delay;
+        rabbit.start += delay/10;
         if (rabbit.start >= die_after)
         {
             rabbit.alive = false;
@@ -224,3 +224,10 @@ function changeColor()
 
 }
       
+function sigmoid(val)
+{
+    let e = 2.71828;
+    let num = 1;
+    let denom = 1+pow(e, -val);
+    return num/denom;
+}

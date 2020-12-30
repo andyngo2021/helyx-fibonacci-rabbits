@@ -74,10 +74,10 @@ class Rabbit
     checkInRangeAndInfect(other_rabbit)
     {
         // if one is NOT infected and the other is infected...
-        if (!(this.infected && other_rabbit.infected) && (this.infected || other_rabbit.infected) && (dist(this.position.x, this.position.y, other_rabbit.position.x, other_rabbit.position.y) < rabbit_size*2)) // then they do be colliding
+        if (!(this.infected && other_rabbit.infected) && (this.infected || other_rabbit.infected) && (dist(this.position.x, this.position.y, other_rabbit.position.x, other_rabbit.position.y) < rabbit_size)) // then they do be colliding
         {
-            let random_chance = 0.5; // random chance rabbit gets infected 0->100
-            if (random(0, 100) < random_chance)
+        // random chance rabbit gets infected 0->100
+            if (random(0, 100) < infection_rate)
             {
                 this.infected = true;
                 other_rabbit.infected = true;
