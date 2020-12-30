@@ -69,28 +69,32 @@
   
     <div style='z-index: 1'><h1>Customization</h1></div> 
     <div class="slidecontainer">
-      <!-- Change Bunny Size POG -->
-      <div style='z-index: 1'><p1>Bunny Size <span id="bun-size"></span></p1>
-      <input type="range" min="5" max="40" value="10" class="slider" id="bun-range"></div>
-      <br>
       <!-- Change Volume -->
-      <div style='z-index: 2'><p1>Music Volume  <span id="sound-vol"></span>%</p1>
+      <div style='z-index: 1'><p1>Music Volume  <span id="sound-vol"></span>%</p1>
       <input type="range" min="0" max="100" value="50" class="slider" id="sound-range"></div>
       <br>
+      <!-- Change Bunny Size POG -->
+      <div style='z-index: 2'><p1>Bunny Size: <span id="bun-size"></span></p1>
+      <input type="range" min="5" max="40" value="10" class="slider" id="bun-range"></div>
+      <br>
+      <!-- Change Bunny Speed POG -->
+      <div style='z-index: 3'><p1>Bunny Speed: <span id="bun-speed"></span></p1>
+      <input type="range" min="0" max="30" value="5" class="slider" id="bun-speed-range"></div>
+      <br>
       <!-- Change Background -->
-      <div style='z-index: 3'><p1>Change Background</p1>
+      <div style='z-index: 4'><p1>Change Background</p1>
       <input style="display: block;margin:0px 0px;"type="color" value="#333333" id="bkg-color" oninput="changeColor();"></div>
       <br>
       <!-- Change Infected Pair Color -->
-      <div style='z-index: 4'><p1>Change Infected Color</p1>
+      <div style='z-index: 5'><p1>Change Infected Color</p1>
       <input style="display: block;margin:0px 0px;"type="color" value="#db0030" id="ip-color" oninput="rabbitColorChange(1);"></div>
       <br>
       <!-- Change Reproductive Pair Color -->
-      <div style='z-index: 5'><p1>Change Reproductive Color</p1>
+      <div style='z-index: 6'><p1>Change Reproductive Color</p1>
       <input style="display: block;margin:0px 0px;"type="color" value="#00db5b" id="rp-color" oninput="rabbitColorChange(2);"></div>
       <br>
       <!-- Change Nonreproductive Pair Color -->
-      <div style='z-index: 6'><p1>Change Nonreproductive Color</p1>
+      <div style='z-index: 7'><p1>Change Nonreproductive Color</p1>
       <input style="display: block;margin:0px 0px;"type="color" value="#ffffff" id="nrp-color" oninput="rabbitColorChange(3);"></div>
       <br>
     </div>
@@ -140,9 +144,17 @@
   {
     bunOutput.innerHTML = bunSize.value;
     rabbit_size=this.value;
-    
   }
 
+  var bunSpeed = document.getElementById("bun-speed-range");
+  var bunSpeedOutput = document.getElementById("bun-speed");
+  bunSpeedOutput.innerHTML = bunSpeed.value;
+  
+  bunSpeed.oninput = function()
+  {
+    bunSpeedOutput.innerHTML = bunSpeed.value;
+    rabbit_speed = this.value;
+  }
 
   numOfMonths.oninput = function() {
     numOfMonthsOutput.innerHTML = this.value;
