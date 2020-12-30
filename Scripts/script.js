@@ -62,6 +62,8 @@ function preload()
     soundFormats('mp3');
     text_font = loadFont("Assets/Nunito-Bold.ttf");
     background_music = loadSound("Assets/thisisprettyRAD.mp3");
+    snap = loadSound("Assets/snap.mp3");
+    dust = loadSound("Assets/dust.mp3");
 }
 
 function initializeValues()
@@ -260,5 +262,15 @@ function rabbitColorChange(n)
     {
         let nrp_color = document.getElementById("nrp-color").value;
         newborn_color = color(nrp_color);
+    }
+}
+
+function thanos()
+{
+    if (rabbits.length > 1)
+    {
+        rabbits.splice(1, Math.ceil(rabbits.length/2));
+        snap.play();
+        dust.play();
     }
 }

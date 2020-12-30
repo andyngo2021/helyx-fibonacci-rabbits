@@ -25,7 +25,7 @@ let background_color;
 let background_music;
 let pandemic = false;
 let p5Canvas;
-
+let snap, dust;
 
 // lifespan of an infected rabbit -> die_after/delay
 // ex: die_after = 5 (5 seconds) and delay (10 seconds = 1 month) -> half a month before dying
