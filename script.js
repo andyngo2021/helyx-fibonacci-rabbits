@@ -219,7 +219,7 @@ function changeColor()
     var theColor = theInput.value;
     console.log(theColor);
     background_color = theColor;
-    background(color(background_color));
+    //background(color(background_color));
     document.getElementById("bkg-color").value = "#000000";
 
 }
