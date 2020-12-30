@@ -57,6 +57,11 @@ function pauseReproduction()
     reproduction_on = false;
 }
 
+function preload()
+{
+    text_font = loadFont("Nunito-Bold.ttf");
+}
+
 function initializeValues()
 {
     infected_color = color(219, 0, 48);
@@ -65,11 +70,13 @@ function initializeValues()
     w = windowWidth*0.79;
     h = windowHeight*0.95;
     background_color = 51;
+    
 }
 
 function setup()
 {
     initializeValues();
+    textFont(text_font);
     createCanvas(w, h);
 
     for (let i=0; i<num_initial_buns; i++)
@@ -167,29 +174,29 @@ function draw()
     text(num_months.toString() + " months", 40, h-50);
     textSize(20);
     text("Total population size: " + rabbits.length.toString(), 40, 50);
+
+
     textSize(15);
-    text("Time in seconds passed: " + start_time.toString(), w-200, h-20);
-
-
     // legend to show stuff 
     let spacing = 20; // space each one 10 px apart
     fill(infected_color); // infected color
-    circle(w-50, spacing - 5, rabbit_size);
-    text("Infected Rabbit Pair: ", w-200, spacing);
+    circle(w-30, spacing - 5, rabbit_size);
+    text("Infected Pair: ", w-200, spacing);
 
     fill(adult_color); // can reproduce
-    circle(w-50, spacing*2 - 5, rabbit_size);
-    text("Adult Rabbit Pair: ", w-200, spacing*2);
+    circle(w-30, spacing*2 - 5, rabbit_size);
+    text("Reproductive Pair: ", w-200, spacing*2);
 
     fill(newborn_color);
-    circle(w-50, spacing*3 - 5, rabbit_size);
-    text("Newborn Rabbit Pair: ", w-200, spacing*3);
+    circle(w-30, spacing*3 - 5, rabbit_size);
+    text("Nonreproductive Pair: ", w-200, spacing*3);
 
     // stats
-    textSize(15);
-    text("Infected: " + num_infected.toString(), w-200, h-spacing*2);
-    text("Non-infected: " + num_not_infected.toString(), w-200, h-spacing*3);
-    text("Deaths: " + num_deaths.toString(), w-200, h-spacing*4);
+    //textSize(15);
+    text("Infected: " + num_infected.toString(), w-225, h-spacing*2);
+    text("Non-infected: " + num_not_infected.toString(), w-225, h-spacing*3);
+    text("Deaths: " + num_deaths.toString(), w-225, h-spacing*4);
+    text("Time in seconds passed: " + start_time.toString(), w-225, h-20);
 }
 
 

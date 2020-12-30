@@ -4,7 +4,6 @@ let rabbit_speed = 5;
 let start_time = 0;
 let num_months = 0;
 let bunny_life_span = 100000000000 // yea idek if i need this one
-
 let reproduction_on = true;
 let w, h;
 let num_initial_buns = 1; // initial population
@@ -20,7 +19,7 @@ let num_not_infected = 0;
 let infected_color; // 219, 0, 48
 let newborn_color; // 255, 255, 255
 let adult_color; // 0, 219, 91
-
+let text_font;
 let background_color;
 
 let pandemic = false;
