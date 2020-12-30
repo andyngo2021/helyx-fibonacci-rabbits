@@ -13,13 +13,13 @@
 </head>
 
 
-<body style="background-color: black">
+<body class="noselect" style="background-color: black">
   <script src="script.js"></script>
   <script src="rabbit.js"></script>
   <script src="global_vars.js"></script>
 
   <!-- Island Controls -->
-  <div id="image">
+  <div id="rabbit-image">
     <div style='z-index: 1'><img src="rabid-19.png" width="150">
   </div>	
   <div class="header">
@@ -105,6 +105,8 @@
     infectedLifespanOutput.innerHTML = this.value;
     die_after = this.value * delay;
   }
+
+  document.getElementById('rabbit-image').ondragstart = function() { return false; };
 </script>
 
 
