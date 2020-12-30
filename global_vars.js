@@ -25,3 +25,6 @@ let pandemic = false;
 
 // lifespan of an infected rabbit -> die_after/delay
 // ex: die_after = 5 (5 seconds) and delay (10 seconds = 1 month) -> half a month before dying
+
+
+// functions to change 
