@@ -1,22 +1,102 @@
 <!DOCTYPE html><html lang="en"><head>
-    <script src="library/p5.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8">
-    <title>Fibonacci Rabbit Simulator</title>
-  </head>
-  <body style="background-color: black">
-    <script src="script.js"></script>
-    <script src="rabbit.js"></script>
-    <script src="global_vars.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js"></script>
+<script src="library/p5.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8">
+
+  <!-- nunito font -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   
-    <div class="btn-group">
-      <button onclick="resetEverything(); setup();">Reset Simulation</button>
-      <button onclick="skipOneMonth();">Fast Forward 1 Month</button>
-      <button onclick="noLoop();">Pause Simulation</button>
-      <button onclick="loop();">Resume Simulation</button>
-      <button onclick="infectRandomRabbit();">Infect a Rabbit</button>
-      <button onclick="pauseReproduction();">Pause Reproduction</button>
-      <button onclick="resumeReproduction();">Resume Reproduction</button>
-    </div>
+  <title>Fibonacci Rabbit Simulator</title>
+</head>
+
+
+<body style="background-color: black">
+  <script src="script.js"></script>
+  <script src="rabbit.js"></script>
+  <script src="global_vars.js"></script>
+
+  <!-- Island Controls -->
+  <div id="image">
+    <div style='z-index: 1'><img src="rabid-19.png" width="150">
+  </div>	
+  <div class="header">
+    <div style='z-index: 1'><h1>Island Controls</h1>
+  </div> 
+
+  <div class="slidecontainer">
+    <!-- number of months slider -->
+    <div style='z-index: 1'><p1><span id="monthsValue"></span> months </p1>
+    <input type="range" min="1" max="10" value="1" class="slider" id="monthsRange"></div>
+    <!-- rate of time slider -->
+    <div style='z-index: 2'><p1><span id="timeValue"></span> seconds / month </p1>
+    <input type="range" min="1" max="10" value="1" class="slider" id="timeRange"></div>
+    <!-- # of initial rabbits slider -->
+    <div style='z-index: 3'><p1><span id="initialValue"></span> initial rabbits </p1>
+    <input type="range" min="1" max="10" value="1" class="slider" id="initialRange"> </div>
+    <!-- # of offspring slider -->
+    <div style='z-index: 4'><p1><span id="offspringValue"></span> offspring / pair </p1>
+    <input type="range" min="1" max="10" value="1" class="slider" id="offspringRange"> </div>
+    <!-- lifespan of infected slider -->
+    <div style='z-index: 5'><p1>Die after <span id="lifespanValue"></span> months </p1>
+    <input type="range" min="1" max="10" value="1" class="slider" id="lifespanRange"> </div>
+  </div><br>
+
+  <!-- Buttons -->
+  <div class="btn-group">
+    <div style='z-index: 1'><button onclick="resetEverything(); setup();">Reset Simulation</button></div>
+    <div style='z-index: 2'><button onclick="skipOneMonth();">Fast Forward 1 Month</button></div>
+    <div style='z-index: 3'><button onclick="noLoop();">Pause Simulation</button></div>
+    <div style='z-index: 4'><button onclick="loop();">Resume Simulation</button></div>
+    <div style='z-index: 5'><button onclick="infectRandomRabbit();">Infect a Rabbit</button></div>
+    <div style='z-index: 6'><button onclick="pauseReproduction();">Pause Reproduction</button></div>
+    <div style='z-index: 7'><button onclick="resumeReproduction();">Resume Reproduction</button></div>
+  </div>
+
+
+
+
+  <script>
+  // sliders
+  var numOfMonths = document.getElementById("monthsRange");
+  var numOfMonthsOutput = document.getElementById("monthsValue");
+  numOfMonthsOutput.innerHTML = numOfMonths.value;
+
+  var rateOfTime = document.getElementById("timeRange");
+  var rateOfTimeOutput = document.getElementById("timeValue");
+  rateOfTimeOutput.innerHTML = rateOfTime.value;
+
+  var numInitial = document.getElementById("initialRange");
+  var numInitialOutput = document.getElementById("initialValue");
+  numInitialOutput.innerHTML = numInitial.value;
+
+  var numOffspring = document.getElementById("offspringRange");
+  var numOffspringOutput = document.getElementById("offspringValue");
+  numOffspringOutput.innerHTML = numOffspring.value;
+
+  var infectedLifespan = document.getElementById("lifespanRange");
+  var infectedLifespanOutput = document.getElementById("lifespanValue");
+  infectedLifespanOutput.innerHTML = infectedLifespan.value;
+
+
+  numOfMonths.oninput = function() {
+    numOfMonthsOutput.innerHTML = this.value;
+  }
+  rateOfTime.oninput = function() {
+    rateOfTimeOutput.innerHTML = this.value;
+  }
+  numInitial.oninput = function() {
+    numInitialOutput.innerHTML = this.value;
+  }
+  numOffspring.oninput = function() {
+    numOffspringOutput.innerHTML = this.value;
+  }
+  infectedLifespan.oninput = function() {
+    infectedLifespanOutput.innerHTML = this.value;
+  }
+</script>
+
 
 </body></html>
