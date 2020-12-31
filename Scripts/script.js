@@ -83,11 +83,16 @@ function setup()
     initializeValues();
     textFont(text_font);
     p5Canvas = createCanvas(w, h);
+    addBuns();
+}
 
+function addBuns()
+{
     for (let i=0; i<num_initial_buns; i++)
     {
         rabbits.push(new Rabbit(random(w*0.40, w*0.60), random(h*0.40, h*0.60), 0))
     }
+    
 }
 
 function windowResized()
