@@ -1,4 +1,4 @@
-# Fibonacci's Rabbit Simulator #
+<a href="https://andyngo2021.github.io/helyx-fibonacci-rabbits" target="_blank"><h1 align="center">Fibonacci's Rabbit Simulator</h1></a>
 
 ## Welcome to Easter Island! ##
 <br>
