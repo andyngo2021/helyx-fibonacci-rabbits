@@ -4,7 +4,7 @@
 <br>
 
 <p align="center">
-<img width="1366" height="500" src="Images/simulation_gif_1.gif">
+<img width="1366" height="450" src="Images/simulation_gif_1.gif">
 <br>
 <br>
 <img align="center" src="Images/screenshot_1.png" alt="Screenshot of simulation">
@@ -38,6 +38,6 @@ Mix things up and change the size of each rabbit pair or their speed! You can al
 <br>
 
 <p align="center">
-<img align="center" width="1366" height="500" src="Images/customization_gif_1.gif">
+<img align="center" width="1366" height="450" src="Images/customization_gif_1.gif">
 </p>
 <br>
