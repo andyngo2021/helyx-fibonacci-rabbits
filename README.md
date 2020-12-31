@@ -33,10 +33,11 @@ Uh oh! A virus has made its way onto Easter Island!
 
 ## Island Customization ##
 <br>
+Mix things up and change the size of each rabbit pair or their speed! You can also change the color of the background and rabbits!
+
+<br>
 
 <p align="center">
 <img align="center" width="1366" height="500" src="Images/customization_gif_1.gif">
 </p>
 <br>
-<br>
-Mix things up and change the size of each rabbit pair or their speed! You can also change the color of the background and rabbits!
