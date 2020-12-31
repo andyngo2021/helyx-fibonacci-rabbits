@@ -4,15 +4,55 @@ function resetEverything()
 {
     start_time = 0;
     num_months = 0;
-    num_initial_buns = 1;
     rabbits = [];
     num_deaths = 0;
     num_infected = 0;
     num_not_infected = 0;
     pandemic = false;
     reproduction_on = true;
+}
+
+function resetAll()
+{
+    resetEverything();
+    initializeValues();
     // reset the sliders
-    // doc.getelemtnbyid blahbalh
+    // infection rate
+    infection_rate = 0.05;
+    numOfMonthsOutput.innerHTML = 5;
+    document.getElementById("monthsRange").value = 5;
+    // seconds/month
+    delay = 10;
+    rateOfTimeOutput.innerHTML = delay;
+    document.getElementById("timeRange").value = delay;
+    // initial rabbits
+    num_initial_buns = 1;
+    numInitialOutput.innerHTML = num_initial_buns;
+    document.getElementById("initialRange").value = num_initial_buns;
+    addBuns();
+    // offspring/pair
+    num_offspring = 1;
+    numOffspringOutput.innerHTML = num_offspring;
+    document.getElementById("offspringRange").value = num_offspring;
+    // infected rabbits die after n months
+    die_after = 1;
+    infectedLifespanOutput.innerHTML = die_after;
+    document.getElementById("lifespanRange").value = die_after;
+    // bunny size
+    rabbit_size = 10;
+    bunOutput.innerHTML = rabbit_size; // resets text on slider
+    document.getElementById("bun-range").value = rabbit_size; // reset slider
+    // bunny speed
+    rabbit_speed = 5;
+    bunSpeedOutput.innerHTML = rabbit_speed; // resets text on slider
+    document.getElementById("bun-speed-range").value = rabbit_speed; // reset slider
+
+    // colors
+    document.getElementById("bkg-color").value = "#333333";
+    document.getElementById("ip-color").value = "#db0030";
+    document.getElementById("rp-color").value = "#00db5b";
+    document.getElementById("nrp-color").value = "#ffffff";
+    
 }
 
 function skipOneMonth()
@@ -219,7 +259,7 @@ function draw()
     text("Infected: " + num_infected.toString(), w-225, h-spacing*2);
     text("Non-infected: " + num_not_infected.toString(), w-225, h-spacing*3);
     text("Deaths: " + num_deaths.toString(), w-225, h-spacing*4);
-    text("Time in seconds passed: " + start_time.toString(), w-225, h-20);
+    text("Simulation Runtime: " + start_time.toString() + "s", w-225, h-20);
 }
 
 

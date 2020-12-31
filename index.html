@@ -56,7 +56,8 @@
 
   <!-- Buttons -->
   <div class="btn-group">
-    <div style='z-index: 1'><button onclick="resetEverything(); addBuns();">Reset Simulation</button></div>
+    <div style='z-index: 0'><button onclick="thanos();">Thanos Snap</button></div>
+    <div style='z-index: 1'><button onclick="resetEverything(); addBuns();">Restart Simulation</button></div>
     <div style='z-index: 2'><button onclick="skipOneMonth();">Fast Forward 1 Month</button></div>
     <div style='z-index: 3'><button onclick="noLoop();">Pause Simulation</button></div>
     <div style='z-index: 4'><button onclick="loop();">Resume Simulation</button></div>
@@ -99,7 +100,7 @@
       <input style="display: block;margin:0px 0px;"type="color" value="#ffffff" id="nrp-color" oninput="rabbitColorChange(3);"></div>
       <br>
       <div class="btn-group">
-        <div style='z-index: 1'><button onclick="thanos();">Thanos Snap</button></div>
+        <div style='z-index: 2'><button onclick="resetAll();">Reset All Settings</button></div>
       </div>
       <br>
       <br>
@@ -173,9 +174,10 @@
   }
   numInitial.oninput = function() {
     numInitialOutput.innerHTML = this.value;
-    resetEverything();
+    // resetEverything();
     num_initial_buns = this.value;
-    setup();
+    resetEverything();
+    addBuns();
     draw();
   }
   numOffspring.oninput = function() {
