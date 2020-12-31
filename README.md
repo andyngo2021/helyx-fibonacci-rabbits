@@ -26,4 +26,5 @@ With these rules in mind, the number of rabbit pairs on the island follow the Fi
 <br>
 
 <img align="left" src="Images/screenshot_2.png" alt="Customization Sidebar">
-Yeet
+
+Mix things up and change the size of each rabbit pair or their speed! You can also change the color of the background and rabbits!
