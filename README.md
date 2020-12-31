@@ -4,10 +4,7 @@
 <br>
 
 <p align="center">
-<img width="1366" height="450" src="Images/simulation_gif_1.gif">
-<br>
-<br>
-<img align="center" src="Images/screenshot_1.png" alt="Screenshot of simulation">
+<img src="Images/simulation.gif">
 </p>
 <br>
 <br>
@@ -28,6 +25,13 @@ With these rules in mind, the number of rabbit pairs on the island follow the Fi
 
 ## RABID-19 Virus ##
 Uh oh! A virus has made its way onto Easter Island!
+<br>
+Simulate a pandemic on Easter Island by infecting the rabbits with RABID-19 and control the rate at which the virus spreads using the sliders at the side!
+<br>
+<br>
+<p align="center">
+<img src="Images/infection_gif.gif">
+</p>
 
 <br>
 
@@ -38,6 +42,6 @@ Mix things up and change the size of each rabbit pair or their speed! You can al
 <br>
 
 <p align="center">
-<img align="center" width="1366" height="450" src="Images/customization_gif_1.gif">
+<img align="center" src="Images/customize.gif">
 </p>
 <br>
