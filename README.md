@@ -3,11 +3,12 @@
 ## Welcome to Easter Island! ##
 <br>
 
-<img align="center" src="Images/simulation_gif_1.gif">
+<p align="center">
+<img width="1366" height="500" src="Images/simulation_gif_1.gif">
 <br>
 <br>
 <img align="center" src="Images/screenshot_1.png" alt="Screenshot of simulation">
-
+</p>
 <br>
 <br>
 
@@ -33,7 +34,9 @@ Uh oh! A virus has made its way onto Easter Island!
 ## Island Customization ##
 <br>
 
-<img align="center" src="Images/customization_gif_1.gif">
+<p align="center">
+<img align="center" width="1366" height="500" src="Images/customization_gif_1.gif">
+</p>
 <br>
 <br>
 Mix things up and change the size of each rabbit pair or their speed! You can also change the color of the background and rabbits!
