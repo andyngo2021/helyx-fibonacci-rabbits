@@ -7,7 +7,6 @@
 <img src="Images/simulation.gif">
 </p>
 <br>
-<br>
 
 ### Rules the Rabbits on Easter Island Abide By ###
 1. The population begins in the first month with a pair of newborn rabbits.
