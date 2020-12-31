@@ -2,9 +2,9 @@
 
 ## Welcome to Easter Island! ##
 <br>
-<div style="text-align:center">
-<img src="Images/screenshot_1.png" alt="Screenshot of simulation">
-</div>
+
+<img align="center" src="Images/screenshot_1.png" alt="Screenshot of simulation">
+
 <br>
 
 ### Rules the Rabbits on Easter Island Abide By ###
@@ -24,6 +24,6 @@ With these rules in mind, the number of rabbit pairs on the island follow the Fi
 
 ## Island Customization ##
 <br>
-<div style="text-align:center">
-<img src="Images/screenshot_2.png" alt="Customization Sidebar">
-</div>
+
+<img align="left" src="Images/screenshot_2.png" alt="Customization Sidebar">
+Yeet
