@@ -44,3 +44,13 @@ Mix things up and change the size of each rabbit pair or their speed! You can al
 <img align="center" src="Images/customize.gif">
 </p>
 <br>
+
+## How it was made ##
+This project was created by high school seniors Andy Ngo, Uyen Nghi Nguyen, and Tiffany Le.
+<br>
+<br>
+Tools used:
+- HTML
+- CSS
+- JavaScript
+- p5.js Graphical Library
